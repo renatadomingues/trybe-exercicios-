@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Exercício 5.2</title>
+    <style>
+      section {
+        border-color: black;
+        border-style: solid;
+      }
+
+      .title {
+        text-align: center;
+      }
+
+      .main-content {
+        background-color: yellow;
+      }
+
+      .main-content .center-content {
+        background-color: red;
+        width: 50%;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .main-content .center-content p {
+        font-style: italic;
+      }
+
+      .main-content .left-content {
+        background-color: green;
+        width: 60%;
+        margin-left: 0;
+        margin-right: auto;
+      }
+
+      .main-content .left-content .small-image {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        border-radius: 100%;
+      }
+
+      .main-content .right-content {
+        background-color: blue;
+        width: 60%;
+        margin-left: auto;
+        margin-right: 0;
+      }
+
+      .main-content .description {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      let newChild = document.createElement('h1');
+      newChild.innerText = 'Exercício 5.2 - JavaScript DOM';
+      document.body.appendChild(newChild);
+
+      let newTag = document.createElement('main');
+      newTag.className = 'main-content';
+      document.body.appendChild(newTag);
+
+      let section = document.createElement('section');
+      section.className = 'center-content';
+      newTag.appendChild(section);
+
+      let text = document.createElement('p');
+      text.innerText = "Esse conteúdo é complicado pra dedéu";
+      section.appendChild(text);
+
+      let section2 = document.createElement('section');
+      section2.className = " left-content";
+      newTag.appendChild(section2)
+
+      let section3 = document.createElement('section');
+      section3.className = 'right-content';
+      newTag.appendChild(section3);
+
+      let srcCreate = document.createElement('img');
+      srcCreate.className = `small-image`;
+      srcCreate.src = 'https://picsum.photos/200';
+      section2.appendChild(srcCreate);
+
+      let list = document.createElement('ul');
+      section3.appendChild(list);
+      let array = ['Um', 'Dois', 'Três', 'Quatro', 'Cinco', 'Seis',
+        'Sete', 'Oito', 'Nove', 'Dez'];
+
+        for(let numbers in array) {
+            const liCreate = document.createElement('li');
+            liCreate.innerHTML = array[numbers];
+            list.appendChild(liCreate);
+        }
+        
+        for (let index = 1; index <= 3; index += 1) {
+        const elementH3 = document.createElement('h3');
+        elementH3.innerHTML = 'Show ' + index;
+        newTag.appendChild(elementH3);
+      }
+
+         </script>
+  </body>
+</html>
